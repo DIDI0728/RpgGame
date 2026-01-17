@@ -54,7 +54,7 @@ public partial class EnemyMove : State
 	public override void Update()
 	{
 		base.Update();
-		character.UpdateAnimatataion();
+		character.UpdateAnimatation();
 		Speed=new RandomNumberGenerator().RandfRange(MinSpeed,MaxSpeed);
 		
 	}
@@ -72,7 +72,7 @@ public partial class EnemyMove : State
 	// Called every frame. 'delta' is the elapsed time since the previous frame.//引擎自动调用，非进入状态机调用
 	public override void _Process(double delta)
 	{
-		character.UpdateAnimatataion();
+		character.UpdateAnimatation();
 		navigationAgent2D.TargetPosition = (character as Enemy).player.GlobalPosition;
 	}
 

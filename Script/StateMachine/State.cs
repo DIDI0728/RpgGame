@@ -18,7 +18,7 @@ public  abstract partial class State : Node
 		if (character.ShowDebugInfo)
 		{
 			if(parentStateMachine.StateLabel!=null)
-				parentStateMachine.StateLabel.Text=parentStateMachine.currentState.Name;
+				parentStateMachine.StateLabel.Text=parentStateMachine.currentState.Name+"/"+character.CurrentHealth;
 			
 		}
 		else parentStateMachine.StateLabel.Text="";	

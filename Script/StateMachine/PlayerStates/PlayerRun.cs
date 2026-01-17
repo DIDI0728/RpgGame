@@ -13,12 +13,7 @@ public partial class PlayerRun : State
 	{
 		base.UpdatePhysics(delta);
 
-		//切换至Idle节点
-		if (character.inputDirection == Vector2.Zero)
-		{
-			parentStateMachine.SwitchTo("Idle");
-			return;
-		}
+	
 		
 
 		//角色移动
@@ -32,10 +27,29 @@ public partial class PlayerRun : State
 	{
 		base.Update();
 		
-		//切换至Run动画
-		/* character.AnimationName="Run_"+character.GetFacingDirection();
-		character.animatedSprite2D.Play(character.AnimationName); */
-		character.UpdateAnimatataion();
+		//更新动画
+		character.UpdateAnimatation();
+
+
+		//切换至Attack状态 
+		if (Input.IsActionJustPressed("Attack"))
+		{
+           
+			base.parentStateMachine.SwitchTo("Attack");
+			return;
+			
+		}
+           
+
+
+		//切换至Idle状态
+		if (character.inputDirection == Vector2.Zero)
+		{
+			parentStateMachine.SwitchTo("Idle");
+			return;
+		}
+
+	
 
 	}
 

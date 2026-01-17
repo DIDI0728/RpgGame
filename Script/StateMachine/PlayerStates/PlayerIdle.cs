@@ -8,17 +8,32 @@ public partial class PlayerIdle : State
     {
         base.UpdatePhysics(delta);
 
-        //切换至Run状态
-        if (character.inputDirection.Length() > 0)
-            base.parentStateMachine.SwitchTo("Run");
+       
     }
 
     public override void Update()
     {
         base.Update();
-         //切换Idle动画
-        /* character.AnimationName="Idle_"+character.GetFacingDirection();
-        character.animatedSprite2D.Play(character.AnimationName); */
-        character.UpdateAnimatataion();
+       
+         character.UpdateAnimatation();
+
+         //切换至Run状态
+        if (character.inputDirection.Length() > 0)
+        {
+            base.parentStateMachine.SwitchTo("Run");
+            return;
+        }
+
+
+
+        //切换至Attack状态 
+        if (Input.IsActionJustPressed("Attack"))
+        {
+            base.parentStateMachine.SwitchTo("Attack");
+            return;
+        }
+            
+       
+
     }
 }

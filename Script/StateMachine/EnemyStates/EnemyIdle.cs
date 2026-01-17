@@ -53,7 +53,7 @@ public partial class EnemyIdle : State
     {
         base.Update();
          //切换动画
-		character.UpdateAnimatataion();
+		character.UpdateAnimatation();
     }
 
 	public void CreatePolygonCircle(){
